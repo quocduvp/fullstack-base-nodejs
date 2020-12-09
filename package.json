@@ -1,0 +1,29 @@
+{
+  "name": "express-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install:client": "cd ./client && npm i",
+    "install:sever": "npm i",
+    "install:all": "concurrently \"npm run install:sever\" \"npm run install:client\"",
+    "build:client": "cd ./client && npm run build",
+    "watch:client": "cd ./client && npm run watch",
+    "watch:server": "nodemon --ignore views .",
+    "watch:dev": "concurrently \"npm run watch:client\" \"npm run watch:server\"",
+    "start:server": "cross-env NODE_ENV=production node .",
+    "start": "concurrently \"npm run build:client\" \"npm run start:production\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "parcel-react": "file:client"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
